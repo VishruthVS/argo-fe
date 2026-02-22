@@ -28,6 +28,7 @@ jobs:
           file: Dockerfile
           push: true
           platforms: linux/amd64
+          provenance: false
           tags: |
             vishruthvs/argo:${{ github.sha }}
             vishruthvs/argo:latest

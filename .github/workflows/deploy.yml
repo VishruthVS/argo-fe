@@ -41,5 +41,10 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
           git add .
-          git commit -m "Update school server image tags to ${{ github.sha }}"
-          git push https://${PAT}@github.com/VishruthVS/argo-deployment.git main
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit - manifest already up to date"
+          else
+            git commit -m "Update image tag to ${{ github.sha }}"
+            git push https://${PAT}@github.com/VishruthVS/argo-deployment.git main
+          fi

@@ -27,6 +27,7 @@ jobs:
           context: .
           file: Dockerfile
           push: true
+          platforms: linux/amd64
           tags: vishruthvs/argo:${{ github.sha }}
           
       - name: Clone staging-ops repo, update image tags, and push tags

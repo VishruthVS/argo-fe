@@ -40,7 +40,7 @@ jobs:
           git clone https://github.com/VishruthVS/argo-deployment.git
           cd argo-deployment
 
-          sed -i 's|image: vishruthvs/argo:.*|image: vishruthvs/argo:latest|' manifest.yml
+          sed -i 's|image: vishruthvs/argo:.*|image: vishruthvs/argo:${{ github.sha }}|' manifest.yml
 
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
